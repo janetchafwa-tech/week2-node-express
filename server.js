@@ -17,11 +17,11 @@ app.use(express.json());
 
 // GET / - Serve the static HTML page
  app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));   
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// Serve other static files from the public folder
-app.use(express.static(__dirname));
+// Serve static files from the public folder
+app.use(express.static(path.join(__dirname, 'public')));
 // POST /user - Create/respond to a user submission
 app.post('/user', (req, res) => {
     const { name, email } = req.body || {};
